@@ -1,0 +1,6 @@
+
+<!-- html5 video player mutipler -->
+<video tal:define="video_url view/getVideoURL; video_width view/getWidth; video_height view/getHeight"
+       tal:attributes="src video_url; width video_width; height video_height" width="400" height="300"
+       controls="controls" poster="" src="Link-video" >
+</video>

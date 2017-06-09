@@ -7,31 +7,17 @@
   <i18n:registerTranslations directory="locales" />
 
   <includeDependencies package="." />
-
+  <include package="wildcard.media" />
   <include package=".browser" />
 
 
-  <genericsetup:registerProfile
-      name="default"
-      title="wildcardmedia.multipler"
-      directory="profiles/default"
-      description="Installs the wildcardmedia.multipler add-on."
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      post_handler=".setuphandlers.post_install"
-      />
+  <adapter
+    for = "wildcard.media.interfaces.IVideoEnabled
+           zope.publisher.interfaces.browser.IHTTPRequest"
+    provides = "wildcard.media.adapter.IVideoEmbedCode"
+    factory = ".browser.videoembedcode.MultiplerEmbedCode"
+    name = "multipler.lepida.it"
+  />
 
-  <genericsetup:registerProfile
-      name="uninstall"
-      title="wildcardmedia.multipler (uninstall)"
-      directory="profiles/uninstall"
-      description="Uninstalls the wildcardmedia.multipler add-on."
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      post_handler=".setuphandlers.uninstall"
-      />
-
-
-  <utility
-      factory=".setuphandlers.HiddenProfiles"
-      name="wildcardmedia.multipler-hiddenprofiles" />
 
 </configure>

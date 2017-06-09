@@ -1,0 +1,6 @@
+[report]
+include =
+    src/wildcardmedia/*
+omit =
+    */test*
+    */upgrades/*

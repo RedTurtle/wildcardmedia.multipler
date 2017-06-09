@@ -6,12 +6,12 @@
 wildcardmedia.multipler
 ==============================================================================
 
-Tell me what your product does
+Multipler adapter for the "new" wildcard.media product.
 
 Features
 --------
 
-- Can be bullet points
+- This product gives the 'new' wildcard.media the support for videos uploaded on the Multipler service.
 
 
 Examples

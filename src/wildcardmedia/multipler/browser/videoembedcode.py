@@ -2,7 +2,8 @@
 
 from zope.interface import implements
 from wildcard.media.adapter import IVideoEmbedCode
-from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
+
 
 class MultiplerEmbedCode(object):
     """ MultiplerEmbedCode
@@ -58,24 +59,5 @@ class MultiplerEmbedCode(object):
     def __call__(self):
         return self.template()
 
-    swf_url = 'https://multipler.lepida.it/flowplayer-3.2.7.swf'
-
-    def get_string_value(self, video_url):
-
-        url, filename = video_url.split('video')
-        thumbs_name = ('%s.jpg' % (filename.split('.')[0])).strip('/')
-
-        thumbs_url = '%svideo/thumbs/%s' % (url, thumbs_name)
-
-        raw_value = """config={{"clip":{{"url":"{0}",
-            "provider": "pseudostreaming"}},
-            "plugins":{{"pseudostreaming":{{"url": "https://multipler.lepida.it/flowplayer.pseudostreaming-3.2.7.swf"}}}},
-            "playlist":[
-              {{"url":"{1}", "scaling":"fit"}},
-              {{"url":"{2}", "autoPlay":false, "scaling":"fit"}}
-            ]}}'"""
-        return raw_value.format(video_url, thumbs_url, video_url)
-
-
     def getVideoURL(self):
-        return self.context.getRemoteUrl()
+        return self.context.video_url

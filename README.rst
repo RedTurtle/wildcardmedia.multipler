@@ -6,12 +6,13 @@
 wildcardmedia.multipler
 ==============================================================================
 
-Multipler adapter for the "new" wildcard.media product.
+Multipler adapter for the "new" wildcard.media product (from version 3.x).
 
 Features
 --------
 
-- This product gives the 'new' wildcard.media the support for videos uploaded on the Multipler service.
+- This product gives the 'new' wildcard.media the support for videos uploaded on
+  the Multipler service.
 
 
 Examples
@@ -24,7 +25,8 @@ This add-on can be seen in action at the following sites:
 Documentation
 -------------
 
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+Full documentation for end users can be found in the "docs" folder, and is also
+available online at http://docs.plone.org/foo/bar
 
 
 Translations
@@ -49,6 +51,10 @@ Install wildcardmedia.multipler by adding it to your buildout::
 
 
 and then running ``bin/buildout``
+
+
+When finished, you can now add a new Video content with a Multipler URL in the
+``Video URL`` field and use it in your website.
 
 
 Contribute

@@ -7,11 +7,13 @@
                 height height|video/height|settings/default_video_height|string:720;
                 width width|video/width|settings/default_video_width|string:400;
                 upload_to_youtube video/upload_video_to_youtube|nothing;
-                video_url view/getVideoURL|nothing">
+                video_url view/getVideoLink|nothing">
 
     <video tal:attributes="src video_url; width width; height height"
            width="400" height="300" controls="controls"
            poster="" src="Link-video" >
     </video>
+
+    <p tal:content="video_url"> </p>
 
 </div>

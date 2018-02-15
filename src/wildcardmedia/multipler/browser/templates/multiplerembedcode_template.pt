@@ -14,6 +14,4 @@
            poster="" src="Link-video" >
     </video>
 
-    <p tal:content="video_url"> </p>
-
 </div>

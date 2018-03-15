@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='wildcardmedia.multipler',
-    version='1.0a1',
+    version='1.0',
     description="Multipler adapter for a Wildcard.Video content type.",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers

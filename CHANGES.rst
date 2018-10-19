@@ -5,7 +5,8 @@ Changelog
 1.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Aggiunto supporto all'immagine "poster" per il tag video html5
+  [arsenico13]
 
 
 1.0 (2018-03-15)

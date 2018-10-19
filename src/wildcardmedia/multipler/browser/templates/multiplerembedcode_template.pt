@@ -1,5 +1,5 @@
 
-<!-- html5 video player mutipler -->
+<!-- html5 video player mutipler :) -->
 <div class="multiplervideocontainer"
     tal:define="util context/@@wcmedia-utils;
                 settings util/settings;
@@ -7,11 +7,12 @@
                 height height|video/height|settings/default_video_height|string:720;
                 width width|video/width|settings/default_video_width|string:400;
                 upload_to_youtube video/upload_video_to_youtube|nothing;
-                video_url view/getVideoURL|nothing">
+                video_url view/getVideoURL|nothing;
+                poster_url view/getPosterURL;">
 
-    <video tal:attributes="src video_url; width width; height height"
+    <video tal:attributes="src video_url; width width; height height; poster poster_url;"
            width="400" height="300" controls="controls"
-           poster="" src="Link-video" >
+           poster="Link-poster-img" src="Link-video" >
     </video>
 
 </div>

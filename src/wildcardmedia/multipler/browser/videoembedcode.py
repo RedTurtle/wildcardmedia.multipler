@@ -40,19 +40,26 @@ class MultiplerEmbedCode(object):
             # ${context/absolute_url}/@@download/image/${context/image/filename}
             # return None
         else:
-            # https://multipler.lepida.it/Internos/video/
+            # LE BESTEMMIE PER RISOLVERE QUESTA COSA. I link di multipler sono
+            # variabili e dobbiamo trovare se matchano. In caso positivo,
+            # estrarre il codice identificativo del video, che è alla fine del
+            # file name.
+
             # string_match = re.search('(?<=https://multipler.lepida.it/Internos/video/)\w+', self.context.video_url)  # noqa
+            # string_match = re.search(r'https?://multipler.lepida.it/[a-zA-Z]*/video/', self.context.video_url)  # noqa
+            # string_match = self.context.video_url[:string_match.start()] + self.context.video_url[string_match.end():]  # noqa
             try:
                 string_match = re.search(
-                    '(?<=https://multipler.lepida.it/Internos/video/)\w+',
+                    r'https?://multipler.lepida.it/[a-zA-Z]*/video/',
                     self.context.video_url
                 )
 
-                if string_match.group():
-                    multipler_code = string_match.group()
-                    site_code_string = multipler_code.split("_")[0]
-                    video_code_ID = multipler_code.split("_")[1]
-                    base_link = "https://multipler.lepida.it/Internos/video/thumbs/"  # noqa
+                string_match = self.context.video_url[:string_match.start()] + self.context.video_url[string_match.end():]  # noqa
+
+                if string_match:
+                    site_code_string = string_match.split("_")[0]
+                    video_code_ID = string_match.split("_")[1][:-4]
+                    base_link = "https://multipler.lepida.it/{}/video/thumbs/".format(site_code_string)  # noqa
                     return base_link + site_code_string + "_" + video_code_ID + ".jpg"  # noqa
                 else:
                     return ""

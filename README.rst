@@ -15,26 +15,38 @@ Features
   the Multipler service.
 
 
-Examples
---------
+Valid URL format
+================
 
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also
-available online at http://docs.plone.org/foo/bar
+    https://multipler.lepida.it/assemblealegislativa1/video/...
 
 
-Translations
-------------
+Poster Images for the html5 video tag
+=====================================
 
-This product has been translated into
+[update 2018]
 
-- Klingon (thanks, K'Plai)
+Il player multipler non è altro che un normalissimo tag `video` html5, quindi
+è il browser che decide come mostrarti il player.
+
+Il tag `video` html5 ha un attributo `poster` che permette di specificare una
+immagine che faccia da cover al video prima che venga riprodotto.
+
+Multipler ora genera in automatico le immagini da usare come poster e sono
+disponibili all'URL in questo formato:
+
+    https://multipler.lepida.it/assemblealegislativa1/video/thumbs/assemblealegislativa1_XXXX.jpg
+
+
+dove XXXX è il codice identificativo del video che ha come url:
+
+    https://multipler.lepida.it/assemblealegislativa1/video/thumbs/assemblealegislativa1_XXXX.jpg
+
+
+L'immagine impostata direttamente sul contenuto nel campo `image` ha la
+precedenza sul poster generato da multipler. Questo per evitare problemi dati
+da miniature generate con snapshot totalmente neri.
+
 
 
 Installation
@@ -63,13 +75,6 @@ Contribute
 - Issue Tracker: https://github.com/collective/wildcardmedia.multipler/issues
 - Source Code: https://github.com/collective/wildcardmedia.multipler
 - Documentation: https://docs.plone.org/foo/bar
-
-
-Support
--------
-
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
 
 
 License

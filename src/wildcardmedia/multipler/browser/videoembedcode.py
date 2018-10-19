@@ -42,16 +42,19 @@ class MultiplerEmbedCode(object):
         else:
             # https://multipler.lepida.it/Internos/video/
             # string_match = re.search('(?<=https://multipler.lepida.it/Internos/video/)\w+', self.context.video_url)  # noqa
-            string_match = re.search(
-                '(?<=https://multipler.lepida.it/Internos/video/)\w+',
-                self.context.video_url
-            )
+            try:
+                string_match = re.search(
+                    '(?<=https://multipler.lepida.it/Internos/video/)\w+',
+                    self.context.video_url
+                )
 
-            if string_match.group():
-                multipler_code = string_match.group()
-                site_code_string = multipler_code.split("_")[0]
-                video_code_ID = multipler_code.split("_")[1]
-                base_link = "https://multipler.lepida.it/Internos/video/thumbs/"  # noqa
-                return base_link + site_code_string + "_" + video_code_ID + ".jpg"  # noqa
-            else:
+                if string_match.group():
+                    multipler_code = string_match.group()
+                    site_code_string = multipler_code.split("_")[0]
+                    video_code_ID = multipler_code.split("_")[1]
+                    base_link = "https://multipler.lepida.it/Internos/video/thumbs/"  # noqa
+                    return base_link + site_code_string + "_" + video_code_ID + ".jpg"  # noqa
+                else:
+                    return ""
+            except Exception as err:
                 return ""

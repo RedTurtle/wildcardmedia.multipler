@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1 (unreleased)
+1.1 (2018-11-27)
 ----------------
 
 - Aggiunto supporto all'immagine "poster" per il tag video html5

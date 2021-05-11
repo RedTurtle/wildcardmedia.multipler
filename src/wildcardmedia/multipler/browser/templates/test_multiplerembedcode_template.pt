@@ -1,0 +1,19 @@
+
+<div class="multiplervideocontainer"
+    tal:define="util context/@@wcmedia-utils;
+                settings util/settings;
+                video nocall: video|context;
+                height height|video/height|settings/default_video_height|string:720;
+                width width|video/width|settings/default_video_width|string:400;
+                upload_to_youtube video/upload_video_to_youtube|nothing;
+                video_url view/getVideoURL|nothing;
+                poster_url view/getPosterURL;
+                video_infos view/getVideoInfos">
+
+    <iframe src="${context/absolute_url}/test-multipler-iframe" frameborder="0"
+            scrolling="no" 
+        style="overflow:hidden;" 
+        height="${height}"
+     width="100%"/>
+
+</div>

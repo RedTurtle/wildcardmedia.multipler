@@ -5,7 +5,8 @@ Changelog
 1.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Aggiunto il supporto a test-multipler.lepida.it con un template sperimentale.
+  [cekk]
 
 
 1.1 (2018-11-27)

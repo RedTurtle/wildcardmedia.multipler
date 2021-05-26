@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-1.2 (unreleased)
-----------------
+1.2.0 (2021-05-26)
+------------------
 
 - Aggiunto il supporto a test-multipler.lepida.it con un template sperimentale.
   [cekk]

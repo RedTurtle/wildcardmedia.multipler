@@ -47,7 +47,10 @@ L'immagine impostata direttamente sul contenuto nel campo `image` ha la
 precedenza sul poster generato da multipler. Questo per evitare problemi dati
 da miniature generate con snapshot totalmente neri.
 
+test-multipler.lepida.it
+========================
 
+C'è un adapter speicifico per l'ambiente di test di Multipler per testare i nuovi player con un template ad hoc (sperimentale).
 
 Installation
 ------------

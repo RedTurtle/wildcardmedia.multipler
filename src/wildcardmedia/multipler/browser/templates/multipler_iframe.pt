@@ -1,12 +1,12 @@
 <html>
 <body tal:define="
-                video nocall: video|context;
-                height height|video/height|settings/default_video_height|string:720;
-                width width|video/width|settings/default_video_width|string:400;
-                upload_to_youtube video/upload_video_to_youtube|nothing;
-                video_url view/getVideoURL|nothing;
-                poster_url view/getPosterURL;
-                video_infos view/getVideoInfos">
+       video nocall: video|context;
+       height height|video/height|settings/default_video_height|string:720;
+       width width|video/width|settings/default_video_width|string:400;
+       upload_to_youtube video/upload_video_to_youtube|nothing;
+       video_url view/getVideoURL|nothing;
+       poster_url view/getPosterURL;
+video_infos view/getVideoInfos">
     <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
     <script src="https://unpkg.com/video.js/dist/video.js"></script>
     <video id="${video_infos/video_id}"
@@ -18,6 +18,5 @@
            preload="none"
            data-setup="{'liveui': false, 'fluid': true, 'poster': '${poster_url}' }"></video>
     <script>videojs('#${video_infos/video_id}').src({src: '${video_url}',type: 'application/x-mpegURL'});</script>
-
 </body>
 </html>

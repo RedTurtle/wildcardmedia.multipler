@@ -5,7 +5,8 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Handle old-style and new-style video embed.
+  [cekk]
 
 
 1.2.0 (2021-05-26)

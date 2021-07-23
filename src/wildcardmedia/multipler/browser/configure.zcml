@@ -20,8 +20,15 @@
 
     <browser:page
       for="*"
+      name="multipler-iframe"
+      template="templates/multipler_iframe.pt"
+      permission="zope2.View"
+      class=".videoembedcode.MultiplerIframe"
+      />
+    <browser:page
+      for="*"
       name="test-multipler-iframe"
-      template="templates/test_multipler_iframe.pt"
+      template="templates/multipler_iframe.pt"
       permission="zope2.View"
       class=".videoembedcode.TestMultiplerIframe"
       />

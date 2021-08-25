@@ -4,6 +4,7 @@ from wildcard.media.adapter import IVideoEmbedCode
 from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 from zope.interface import implements
 from Products.Five import BrowserView
+from plone import api
 
 import re
 import urllib
@@ -23,9 +24,7 @@ class BaseVideoUtils(object):
         if is_playlist:
             regexp_search = r"https?://multipler.lepida.it/vod/test/video/"
         else:
-            regexp_search = (
-                r"https://multipler.lepida.it/video/(.+?)(\.[^.]*$|$)"
-            )
+            regexp_search = r"https://multipler.lepida.it/video/(.+?)(\.[^.]*$|$)"
         try:
             string_match = re.search(regexp_search, self.context.video_url,)
 
@@ -87,15 +86,8 @@ class BaseVideoUtils(object):
         try:
             video_infos = self.getVideoInfos()
             if video_infos:
-                base_link = self.base_link_template.format(
-                    video_infos.get("site_code_string", "")
-                )
-                return (
-                    base_link
-                    + video_infos.get("site_code_string", "")
-                    + "_"
-                    + video_infos.get("video_code_id", "")
-                    + ".jpg"
+                return "https://multipler.lepida.it/vod/test/video/{id}/{id}.jpg".format(
+                    id=video_infos.get("video_id")
                 )
             else:
                 return ""
@@ -103,15 +95,16 @@ class BaseVideoUtils(object):
             logger.exception(e)
             return ""
 
+    def get_language(self):
+        return api.portal.get_current_language()
+
 
 class TestVideoUtils(BaseVideoUtils):
     regexp_search = r"https?://test-multipler.lepida.it/[a-zA-Z]*/test/video/"
 
     def getVideoInfos(self):
         try:
-            string_match = re.search(
-                self.regexp_search, self.context.video_url,
-            )
+            string_match = re.search(self.regexp_search, self.context.video_url,)
 
             string_match = (
                 self.context.video_url[: string_match.start()]
@@ -148,8 +141,7 @@ class TestVideoUtils(BaseVideoUtils):
         if not video_infos:
             return ""
         return "https://test-multipler.lepida.it/vod/test/video/{0}/{1}.jpg".format(  # noqa
-            video_infos.get("video_id", ""),
-            video_infos.get("video_file_id", ""),
+            video_infos.get("video_id", ""), video_infos.get("video_file_id", ""),
         )
 
 
@@ -179,9 +171,7 @@ class TestMultiplerEmbedCode(TestVideoUtils):
     """
 
     implements(IVideoEmbedCode)
-    template = ViewPageTemplateFile(
-        "templates/test_multiplerembedcode_template.pt"
-    )
+    template = ViewPageTemplateFile("templates/test_multiplerembedcode_template.pt")
 
     def __init__(self, context, request):
         self.context = context

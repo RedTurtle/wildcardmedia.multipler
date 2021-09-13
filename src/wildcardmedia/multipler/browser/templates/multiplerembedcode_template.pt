@@ -1,5 +1,5 @@
 <link href="${view/get_resource_css}" rel="stylesheet">
-<div id="multipler-wrapper"
+<div class="wcvideo-container"
     tal:define="util context/@@wcmedia-utils;
                 settings util/settings;
                 video nocall: video|context;

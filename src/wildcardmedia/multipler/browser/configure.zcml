@@ -18,18 +18,4 @@
       directory="static"
       />
 
-    <browser:page
-      for="*"
-      name="multipler-iframe"
-      template="templates/multipler_iframe.pt"
-      permission="zope2.View"
-      class=".videoembedcode.MultiplerIframe"
-      />
-    <browser:page
-      for="*"
-      name="test-multipler-iframe"
-      template="templates/multipler_iframe.pt"
-      permission="zope2.View"
-      class=".videoembedcode.TestMultiplerIframe"
-      />
 </configure>

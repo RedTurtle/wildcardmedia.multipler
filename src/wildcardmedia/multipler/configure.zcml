@@ -23,7 +23,7 @@
     for = "wildcard.media.interfaces.IVideoEnabled
            zope.publisher.interfaces.browser.IHTTPRequest"
     provides = "wildcard.media.adapter.IVideoEmbedCode"
-    factory = ".browser.videoembedcode.TestMultiplerEmbedCode"
+    factory = ".browser.videoembedcode.MultiplerEmbedCode"
     name = "test-multipler.lepida.it"
   />
 

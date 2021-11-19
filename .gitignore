@@ -1,3 +1,4 @@
+.python-version
 .coverage
 *.egg-info
 *.log
@@ -13,8 +14,10 @@ htmlcov/
 include/
 lib/
 local/
+node_modules/
 parts/
 src/*
+src/wildcardmedia/multipler/browser/static/dist/dev/*
 test.plone_addon/
 var/
 # files
@@ -33,3 +36,5 @@ report.html
 !.gitkeep
 !.travis.yml
 !src/wildcardmedia
+.Python
+.vscode

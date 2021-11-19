@@ -1,18 +1,11 @@
-
-<!-- html5 video player mutipler :) -->
-<div class="multiplervideocontainer"
+<link href="${view/get_resource_css}" rel="stylesheet">
+<div class="wcvideo-container"
     tal:define="util context/@@wcmedia-utils;
                 settings util/settings;
                 video nocall: video|context;
-                height height|video/height|settings/default_video_height|string:720;
-                width width|video/width|settings/default_video_width|string:400;
-                upload_to_youtube video/upload_video_to_youtube|nothing;
                 video_url view/getVideoURL|nothing;
                 poster_url view/getPosterURL;">
-
-    <video tal:attributes="src video_url; width width; height height; poster poster_url;"
-           width="400" height="300" controls="controls"
-           poster="Link-poster-img" src="Link-video" >
-    </video>
-
+    <div id="multipler-video"
+         data-video-data='{"videoUrl": "${video_url}", "posterUrl": "${poster_url}", "language": "${view/get_language}"}'/>
+    <script src="${view/get_resource_js}"></script>
 </div>

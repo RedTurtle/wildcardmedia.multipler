@@ -5,3 +5,7 @@ global-exclude *.pyc
 include *.js
 include *.json
 include *.lock
+prune src/wildcardmedia/multipler/browser/static/dist/dev
+prune node_modules
+exclude .babelrc
+exclude .nvmrc

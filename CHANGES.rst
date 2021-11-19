@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.1 (unreleased)
+1.2.1 (2021-11-19)
 ------------------
 
 - Handle old-style and new-style video embed.

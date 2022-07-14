@@ -4,7 +4,7 @@ from plone.memoize import ram
 from time import time
 from wildcard.media.adapter import IVideoEmbedCode
 from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
-from zope.interface import implements
+from zope.interface import implementer
 
 import logging
 import pkg_resources
@@ -25,7 +25,7 @@ class BaseVideoUtils(object):
         if is_playlist:
             regexp_search = r"https?://multipler.lepida.it/vod/test/video/"
         else:
-            regexp_search = r"https://multipler.lepida.it/video/(.+?)(\.[^.]*$|$)"
+            regexp_search = r"https://multipler.lepida.it/video/(.+?)(\.[^.]*$|$)" # noqa
         try:
             string_match = re.search(
                 regexp_search,
@@ -37,7 +37,7 @@ class BaseVideoUtils(object):
             if is_playlist:
                 string_match = (
                     self.context.video_url[: string_match.start()]
-                    + self.context.video_url[string_match.end() :]
+                    + self.context.video_url[string_match.end():]
                 )
                 return {"video_id": string_match.split("/")[0]}
             else:
@@ -71,15 +71,15 @@ class BaseVideoUtils(object):
                 self.context.video_url,
             )
 
-            string_match = (
-                self.context.video_url[: string_match.start()]
-                + self.context.video_url[string_match.end() :]
-            )  # noqa
-
             if string_match:
+                string_match = (
+                    self.context.video_url[: string_match.start()]
+                    + self.context.video_url[string_match.end():]
+                )  # noqa
+
                 site_code_string = string_match.split("_")[0]
                 video_code_ID = string_match.split("_")[1][:-4]
-                base_link = "https://multipler.lepida.it/{}/video/thumbs/".format(
+                base_link = "https://multipler.lepida.it/{}/video/thumbs/".format( # noqa
                     site_code_string
                 )  # noqa
                 return (
@@ -91,7 +91,7 @@ class BaseVideoUtils(object):
             video_infos = self.getVideoInfos()
             if video_infos:
                 return (
-                    "https://multipler.lepida.it/vod/test/video/{id}/{id}.jpg".format(
+                    "https://multipler.lepida.it/vod/test/video/{id}/{id}.jpg".format( # noqa
                         id=video_infos.get("video_id")
                     )
                 )
@@ -134,10 +134,10 @@ class BaseVideoUtils(object):
         )
 
 
+@implementer(IVideoEmbedCode)
 class MultiplerEmbedCode(BaseVideoUtils):
     """Wildcard.media - Multipler"""
 
-    implements(IVideoEmbedCode)
     template = ViewPageTemplateFile("templates/multiplerembedcode_template.pt")
     legacy_template = ViewPageTemplateFile(
         "templates/legacy_multiplerembedcode_template.pt"
